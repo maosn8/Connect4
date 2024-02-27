@@ -9,14 +9,10 @@ public class connect4 {
         System.out.println("Welcome to Connect 4®! Which player will be starting: R or Y?");
         char startingColor = input.next().charAt(0);
         startingColor = Character.toUpperCase(startingColor);
-        for(int i = 0; i < gameBoard.length; i++){
-            for(int j = 0; j < gameBoard[i].length; j++){
-                gameBoard[i][j] = ' ';
-            }
+        for (char[] chars : gameBoard) {
+            Arrays.fill(chars, ' ');
         }
-        for(int i = 0; i < countRow.length; i++){
-            countRow[i] = 5;
-        }
+        Arrays.fill(countRow, 5);
         while(!win){
             playGame(startingColor,input,gameBoard,countRow);
             count++;
@@ -32,9 +28,9 @@ public class connect4 {
         System.out.println("Congrats " + input.next().toUpperCase() + "! You have won!!");
     }
     public static void displayBoard(char[][] arr){
-        for(int i = 0; i < arr.length; i++){
-            for(int j = 0; j < arr[i].length; j++){
-                System.out.print("|" + arr[i][j]);
+        for (char[] chars : arr) {
+            for (char aChar : chars) {
+                System.out.print("|" + aChar);
             }
             System.out.println("|");
         }
